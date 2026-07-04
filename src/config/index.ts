@@ -8,8 +8,8 @@ export default {
     databaseUrl: process.env.DATABASE_URL,
     appUrl: process.env.APP_URL,
     bycryptSaltRounds: process.env.BCRYPT_SALT_ROUNDS,
-    jwtSecret: process.env.JWT_SECRET,
-    jwtExpiration: process.env.JWT_EXPIRATION,
-    jwtRefreshSecret: process.env.JWT_REFRESH_SECRET,
-    jwtRefreshExpiration: process.env.JWT_REFRESH_EXPIRATION,
+    jwtSecret: process.env.JWT_SCRETE!,
+    jwtExpiration: process.env.JWT_EXPIRATION!,
+    jwtRefreshSecret: process.env.JWT_REFRESH_SECRET!,
+    jwtRefreshExpiration: process.env.JWT_REFRESH_EXPIRATION!,
 }

@@ -4,10 +4,12 @@ model User {
     email    String  @unique 
     password String  
     activeStatus ActiveStatus @default(ACTIVE)
-    role     role  @default(USER)
+    role     Role  @default(USER)
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     profile profile?
+    comments Comment[]
+    posts Post[]
     @@map("users")
 }
 
