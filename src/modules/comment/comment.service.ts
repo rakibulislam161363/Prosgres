@@ -1,6 +1,7 @@
 import { prisma } from "../../lib/prisma"
+import { ICreateCommentPayload, IModerateCommentPayload, IUpdateCommentPayload } from "./comment.interface";
 
-const createComment = async (authorId: string, payload: any) => {
+const createComment = async (authorId: string, payload: ICreateCommentPayload) => {
     await prisma.post.findUniqueOrThrow({
         where: {
             id: payload.postId
@@ -38,7 +39,7 @@ const getCommentsByAuthor = async (authorId: string) =>{
     return comments;
 };
 
-const getCommentById = async (postId : string) => {
+const getCommentPostId = async (postId : string) => {
     const result = await prisma.comment.findMany({
         where: {
             postId
@@ -51,7 +52,7 @@ const getCommentById = async (postId : string) => {
 };
 
 
-const updateComment = async (commentId: string, data:any, authorId: string) => {
+const updateComment = async (commentId: string, data: IUpdateCommentPayload, authorId: string) => {
  const commentData = await prisma.comment.findFirstOrThrow({
     where:{
         id: commentId,
@@ -95,7 +96,7 @@ const deleteComment = async (commentId: string, authorId: string) => {
     return comment;
 };
 
-const moderateComment = async (id:string, data: any) => {
+const moderateComment = async (id:string, data: IModerateCommentPayload) => {
     const commentData = await prisma.comment.findUniqueOrThrow({
         where: {
             id,
@@ -125,7 +126,7 @@ const moderateComment = async (id:string, data: any) => {
 export const commentService = {
     createComment,
     getCommentsByAuthor,
-    getCommentById,
+    getCommentPostId,
     updateComment,
     deleteComment,
     moderateComment

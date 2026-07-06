@@ -7,9 +7,9 @@ const route = Router();
 
 route.post("/", auth(Role.AUTHOR,Role.USER, Role.ADMIN), postController.createPost);
 
-route.get("/",postController.getAllPost);
+route.get("/",postController.getAllPosts);
 
-route.get("/stats",auth(Role.ADMIN, Role.USER) ,postController.getPostStats);
+route.get("/stats",auth(Role.ADMIN, Role.USER) ,postController.getPostsStats);
 
 route.get("/my-posts",auth(Role.AUTHOR,Role.USER, Role.ADMIN),postController.getMyPosts);
 

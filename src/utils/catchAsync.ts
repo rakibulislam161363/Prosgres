@@ -5,13 +5,14 @@ export const catchAsync = (fn: RequestHandler) =>{
     try {
       await fn(req, res, next);
     } catch (error: any) {
-      res.status(httpStatus.BAD_REQUEST).json({
-      success: false,
-      statusCode: httpStatus.BAD_REQUEST,
-      message: "Failed to register user",
-      data: null,
-      error: error.message
-    })
+    //   res.status(httpStatus.BAD_REQUEST).json({
+    //   success: false,
+    //   statusCode: httpStatus.BAD_REQUEST,
+    //   message: "Failed to register user",
+    //   data: null,
+    //   error: error.message
+    // })
+    next(error)
     }
   }
 };
