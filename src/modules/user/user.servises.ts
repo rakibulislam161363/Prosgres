@@ -68,7 +68,7 @@ const getMyProfileFromDB = async (userId: string) => {
       password: true,
     }
   })
-  return profile
+  return profile;
 };
 
 const getProfileUpdateDB = async(userId: string, payload: any) =>{
